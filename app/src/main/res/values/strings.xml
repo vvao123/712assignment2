@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">712assignment2</string>
+    <string name="title_activity_third">ThirdActivity</string>
 </resources>

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera" android:required="true"/>
 
     <application
         android:allowBackup="true"
@@ -13,14 +15,19 @@
         android:theme="@style/Theme._712assignment2"
         tools:targetApi="31">
         <activity
+            android:name=".ThirdActivity"
+            android:exported="false"
+            android:label="@string/title_activity_third"
+            android:theme="@style/Theme.AppCompat.DayNight" />
+        <activity
             android:name=".SecondActivity"
-            android:theme="@style/Theme.AppCompat.DayNight"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.DayNight">
+            <intent-filter>
+                <action android:name="com.example.ACTION_DISPLAY" />
 
-            android:exported="false">
-        <intent-filter>
-            <action android:name="com.example.ACTION_DISPLAY" />
-            <category android:name="android.intent.category.DEFAULT" />
-        </intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".MainActivity"

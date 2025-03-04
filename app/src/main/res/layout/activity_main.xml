@@ -7,18 +7,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="wei wang 1448329"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:layout_gravity="center"/>
     <Button
     android:id="@+id/buttonExplicit"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="Start Activity Explicitly" />
+    android:text="Start Activity Explicitly"
+        android:layout_gravity="center"/>
 
     <Button
         android:id="@+id/buttonImplicit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start Activity Implicitly" />
+        android:text="Start Activity Implicitly"
+        android:layout_gravity="center"/>
+    <Button
+        android:id="@+id/viewImageActivityBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Image Activity"
+        android:layout_gravity="center"/>
 
 
 </LinearLayout>

@@ -41,6 +41,11 @@ class MainActivity : ComponentActivity() {
             val implicitIntent = Intent("com.example.ACTION_DISPLAY")
             startActivity(implicitIntent)
         }
+        val viewImageActivityBtn: Button = findViewById(R.id.viewImageActivityBtn)
+        viewImageActivityBtn.setOnClickListener {
+            val intent = Intent(this, ThirdActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
 
