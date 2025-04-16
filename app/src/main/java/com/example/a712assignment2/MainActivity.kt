@@ -1,21 +1,25 @@
 package com.example.a712assignment2
 
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.a712assignment2.ui.theme._712assignment2Theme
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
+
 
 class MainActivity : ComponentActivity() {
+    private val customPermission = "com.example.a712assignment2.MSE412"
+    private val requestPermissionLauncher =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
+            if (isGranted) {
+                Toast.makeText(this, "Permission granted!", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Permission denied.", Toast.LENGTH_SHORT).show()
+            }
+        }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        enableEdgeToEdge()
@@ -29,6 +33,9 @@ class MainActivity : ComponentActivity() {
 //                }
 //            }
 //        }
+        if (ContextCompat.checkSelfPermission(this, customPermission) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissionLauncher.launch(customPermission)
+        }
         setContentView(R.layout.activity_main)
         val buttonExplicit: Button = findViewById(R.id.buttonExplicit)
         buttonExplicit.setOnClickListener {
@@ -47,6 +54,7 @@ class MainActivity : ComponentActivity() {
             startActivity(intent)
         }
     }
+
 }
 
 //@Composable

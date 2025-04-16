@@ -3,6 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools">
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-feature android:name="android.hardware.camera" android:required="true"/>
+    <permission
+        android:name="com.example.a712assignment2.MSE412"
+        android:protectionLevel="dangerous" />
+    <uses-permission android:name="com.example.a712assignment2.MSE412" />
 
     <application
         android:allowBackup="true"
@@ -21,7 +25,8 @@
             android:theme="@style/Theme.AppCompat.DayNight" />
         <activity
             android:name=".SecondActivity"
-            android:exported="false"
+            android:exported="true"
+            android:permission="com.example.a712assignment2.MSE412"
             android:theme="@style/Theme.AppCompat.DayNight">
             <intent-filter>
                 <action android:name="com.example.ACTION_DISPLAY" />
